@@ -8,7 +8,29 @@ const createPost = post => {
     
 }
 
+const updatePost = async (postId, post) => {
+
+    console.log('store')
+
+    let postFound = await Post.findOne({
+        _id: postId
+    })
+
+    postFound = {
+        ...postFound,
+        title: post.title,
+        content: post.content,
+        updatedAt: post.updatedAt,
+        updatedBy: post.updatedBy
+    }
+
+    const result = postFound.save()
+
+    return result
+}
+
 module.exports = {
     getPosts,
-    createPost
+    createPost,
+    updatePost
 }

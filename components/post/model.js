@@ -2,11 +2,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const postSchema = new Schema({
-    message: {
+    title: {
         type: String,
         required: true
     },
-    user: {
+    content: {
         type: String,
         required: true
     },
@@ -14,8 +14,16 @@ const postSchema = new Schema({
         type: Date,
         required: true
     },
+    createdBy: {
+        type: String,
+        required: true
+    },
     updatedAt: {
         type: Date,
+        required: true
+    },
+    updatedBy: {
+        type: String,
         required: true
     }
 })
